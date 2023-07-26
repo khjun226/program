@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guitarHJ</title>
+
+    <style>
+      /* CSS 코드 추가 */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guitarHJ</title>
+
+    <style>
+      /* CSS 코드 추가 */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guitarHJ</title>
+
+    <style>
+      /* CSS 코드 추가 */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+
+      main {
+        display: flex;
+        height: 100%;
+      }
+
+      .category {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: flex 0.3s ease;
+        cursor: pointer;
+      }
+
+      .category-content {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      #guitar {
+        background-image: url("guitar.jpg");
+      }
+
+      #effector {
+        background-image: url("effector.jpg");
+      }
+
+      @media screen and (max-width: 768px) {
+        main {
+          flex-direction: column;
+        }
+      }
+
+      /* 테이블 스타일링을 위한 CSS 코드 추가 */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+
+</head>
+<body>
+
+<header>
+  <h1>guitarHJ</h1>
+</header>
+</header>
+
+<main>
+  <a href="#" class="category" id="guitar">
+    <div class="category-content">
+      <h2>Guitar</h2>
+    </div>
+  </a>
+  <a href="#" class="category" id="effector">
+    <div class="category-content">
+      <h2>Effector</h2>
+    </div>
+  </a>
+</main>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>msg</th>
+  </tr>
+</table>
+
+<script>
+  const guitarCategory = document.getElementById("guitar");
+  const effectorCategory = document.getElementById("effector");
+
+  guitarCategory.addEventListener("mouseover", () => {
+    guitarCategory.style.flex = "2";
+    effectorCategory.style.flex = "1";
+  });
+
+  effectorCategory.addEventListener("mouseover", () => {
+    guitarCategory.style.flex = "1";
+    effectorCategory.style.flex = "2";
+  });
+
+  guitarCategory.addEventListener("mouseout", () => {
+    guitarCategory.style.flex = "1";
+    effectorCategory.style.flex = "1";
+  });
+
+  effectorCategory.addEventListener("mouseout", () => {
+    guitarCategory.style.flex = "1";
+  guitarCategory.addEventListener("click", () => {
+    window.location.href = "guitar.html";
+  });
+
+  effectorCategory.addEventListener("click", () => {
+    window.location.href = "effector.html";
+  });
+
+  // API로 받아온 데이터를 테이블로 표시하는 코드 추가
+  fetch('http://52.79.128.60:80/api')
+    .then((res) => res.json())
+    .then((res) => {
+      const table = document.querySelector('table');
+      res.forEach((row) => {
+        const tr = document.createElement('tr');
+        ['id', 'name', 'msg'].forEach((key) => {
+          const cell = document.createElement('td');
+          cell.textContent = row[key];
+          tr.appendChild(cell);
+        });
+        table.appendChild(tr);
+      });
+    });
+</script>
+
+</body>
+</html>
